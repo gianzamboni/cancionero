@@ -93,15 +93,18 @@ locate(loc => {
 }
 
 #let parseSongBodyWithChords(body) = {
-  let parsed = body.children.map((element) => {
-      if element == [ ] {
+  let parsed = body.children
+    .map((element) => {
+      if(element == parbreak()) {
         linebreak()
+      } else if(element == [stanza]) {
+        parbreak()
       } else {
         element
       }
-    })
+    }).split(linebreak())
   parsed.remove(0)
-  return parsed
+  return parsed.flatten()
 }
 
 #let nonChordSong(body) = [
@@ -112,8 +115,8 @@ locate(loc => {
 ]
 
 #let chordSong(body) = [
+ #set par(leading: 0.5em)
  #let parsed = parseSongBodyWithChords(body)
- #parsed
   #columns(2, gutter: 1em)[
   #parsed.join("")
 ]
