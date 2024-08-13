@@ -92,21 +92,6 @@ locate(loc => {
   return parsed
 }
 
-#let parseSongBodyWithChords(body) = {
-  let parsed = body.children
-    .map((element) => {
-      if(element == parbreak()) {
-        linebreak()
-      } else if(element == [stanza]) {
-        parbreak()
-      } else {
-        element
-      }
-    }).split(linebreak())
-  parsed.remove(0)
-  return parsed.flatten()
-}
-
 #let nonChordSong(body) = [
   #let parsed = parseSongBodyWithoutChords(body)
   #columns(2, gutter: 1em)[
@@ -114,22 +99,53 @@ locate(loc => {
   ]
 ]
 
+#let parseSongBodyWithChords(body) = {
+  let verses = body.children.split(parbreak())
+  let parsed = ()
+  parsed.push(verses.at(0))
+  
+  let counter = 1
+  while counter < verses.len() {
+    let verse = verses.at(counter)
+    let shouldAddSpace = verse
+      .filter(elem => elem != [ ])
+      .filter(elem => elem.fields() == (:)).len() == 0
+
+    parsed.push(linebreak())
+    if(shouldAddSpace and verse.at(0) != [stanza]) {
+      parsed.push(v(-1em))
+    }
+
+    if(verse.at(0) != [stanza]) {
+      parsed.push(verse)
+    } else {
+      parsed.push(v(-2em))
+    }
+
+    counter = counter + 1
+  }
+  parsed = parsed.flatten()
+  parsed.remove(0)
+  return parsed
+}
+
 #let chordSong(body) = [
- #set par(leading: 0.5em)
- #let parsed = parseSongBodyWithChords(body)
+  #set par(leading: 0.5em)
+  #let parsed = parseSongBodyWithChords(body) 
   #columns(2, gutter: 1em)[
-  #parsed.join("")
+    #parsed.join("")
+  ]
 ]
-]
+
 #let cancion(title, artist, withCords: false, body) = [
-  == #title 
+  #pagebreak()
+  == #title
   === #artist
   #if withCords {
     chordSong(body)
   } else {
     nonChordSong(body)
   }
-  #pagebreak()
 ]
 
 #let seccion(name) = [

@@ -21,6 +21,8 @@ Se #chord[consumen][Dm][5] por querer gritar
 
 #chord[Lo][E][0] que se queda en el mar
 
+#new-stanza
+
 #chord[Y][Dm][0] ante las altas #chord[corrientes][Am][6]
 
 Matar #chord[insolentes][E][6] da Gracia y #chord[Fortuna][Am][5]
@@ -39,8 +41,7 @@ Lanza rayos cuando se enteró
 
 Que al cielo van a asaltar
 
-#new-stanza
-
+#colbreak()
 Y de estrellas pretenden valerse
 
 Sonsacan la muerte fingiendo bravura

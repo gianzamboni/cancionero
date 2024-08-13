@@ -25,6 +25,8 @@ Yo soy la última rima del poema
 Mi voz en todo acorde suena
 Y con cualquier camino yo hago esquina
 
+#colbreak()
+
 No hay que pensar ni preguntar
 Yo soy mi propia explicación 
 Soy el sentido y el motor 
