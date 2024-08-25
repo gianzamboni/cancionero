@@ -3,7 +3,7 @@
 
 #let docFontSize = 12pt
 
-#let chart-chord = chart-chord.with(scale: 2)
+#let chart-chord = chart-chord.with(size: 2em, design: "round")
 #let chord = single-chord.with(
   font: "Arial", 
   size: 10pt, 
@@ -138,7 +138,6 @@ locate(loc => {
 ]
 
 #let cancion(title, artist, withCords: false, body) = [
-  #pagebreak()
   == #title
   === #artist
   #if withCords {
@@ -146,6 +145,7 @@ locate(loc => {
   } else {
     nonChordSong(body)
   }
+  #pagebreak()
 ]
 
 #let seccion(name) = [
@@ -154,3 +154,8 @@ locate(loc => {
 ]
 
 #let new-stanza = "stanza"
+
+#let chordText(body) = [
+  #set text(size: 16pt)
+  #body
+]

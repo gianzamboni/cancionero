@@ -1,4 +1,4 @@
-#import "../theme.typ": *;
+#import "../theme/project.typ": *;
 
 #cancion("Entre oráculos","Briela Ojeda", withCords: true)[
 #seccion[A]

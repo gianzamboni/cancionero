@@ -1,4 +1,4 @@
-#import "../theme.typ": *;
+#import "../theme/project.typ": *;
 
 #cancion("The Lobster Quadrille","Franz Ferdinand", withCords: true)[
   Will you #chord[walk][Em][0] a little faster?

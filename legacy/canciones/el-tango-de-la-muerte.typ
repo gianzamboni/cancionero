@@ -1,4 +1,4 @@
-#import "../theme.typ": *;
+#import "../theme/project.typ": *;
 
 #cancion("El tango de la muerte","Alejandro Dolina")[
 ¡Qué se haga ya la oscuridad!

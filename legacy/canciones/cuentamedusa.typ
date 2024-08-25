@@ -1,4 +1,4 @@
-#import "../theme.typ": *;
+#import "../theme/project.typ": *;
 
 #cancion("Cuentamedusa","Valbé")[
 #seccion[A] 
