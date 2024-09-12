@@ -4,7 +4,19 @@
   title: "Cancionero",
   authors: (
     "Gian",
-  )
+  ),
+  date: "October 8, 2023",
 )
 
-Hola, este es el canciones de Gian. Aquí encontrarás las canciones que he escrito y que me gustan.
+#linebreak()
+
+#outline(title:[Índice #linebreak()], depth: 2  , indent: 10pt)
+
+#include "acordes.typ"
+
+= Canciones
+
+#include "canciones/cuentamedusa.typ"
+#include "canciones/el-tango-de-la-muerte.typ"
+#include "canciones/entre-oraculos.typ"
+#include "canciones/the-lobster-quadrille.typ"
